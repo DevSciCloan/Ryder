@@ -7,6 +7,8 @@ public class TrackMagnetism : MonoBehaviour
     [SerializeField] WheelGrounded fWheelGrounded;
     [SerializeField] WheelGrounded bWheelGrounded;
     [SerializeField] float magnetStrength;
+    [SerializeField] float backflipSpeed;
+    [SerializeField] float frontflipSpeed;
     Rigidbody2D vehicleBody;
 
     private bool spaceHeld;
@@ -19,25 +21,25 @@ public class TrackMagnetism : MonoBehaviour
         if (fWheelGrounded.Grounded && bWheelGrounded.Grounded)
         {
             Vector3 betweenWheelsVector = fWheelGrounded.gameObject.transform.position - bWheelGrounded.gameObject.transform.position;
-            vehicleBody.AddForce((transform.position - (betweenWheelsVector.normalized * .5f)) * magnetStrength, ForceMode2D.Force);
+            vehicleBody.AddForce(-transform.up * magnetStrength, ForceMode2D.Force);
             
         }
 
-        else if ((!fWheelGrounded.Grounded || !bWheelGrounded.Grounded) && !spaceHeld)
+        else if ((!fWheelGrounded.Grounded && !bWheelGrounded.Grounded) && !spaceHeld)
         {
             if (vehicleBody.angularVelocity > 0)
             {
                 vehicleBody.angularVelocity = 0;
             }
-            vehicleBody.AddTorque(-3.5f*Time.deltaTime);
+            vehicleBody.AddTorque(-frontflipSpeed);
         }
-        else if ((!fWheelGrounded.Grounded || !bWheelGrounded.Grounded) && spaceHeld)
+        else if ((!fWheelGrounded.Grounded && !bWheelGrounded.Grounded) && spaceHeld)
         {
             if (vehicleBody.angularVelocity < 0)
             {
                 vehicleBody.angularVelocity = 0;
             }
-            vehicleBody.AddTorque(1);
+            vehicleBody.AddTorque(backflipSpeed);
         }
     }
 
