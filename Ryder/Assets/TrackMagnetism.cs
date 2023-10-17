@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TrackMagnetism : MonoBehaviour
@@ -11,8 +13,13 @@ public class TrackMagnetism : MonoBehaviour
     [SerializeField] float maxBackflipSpeed;
     [SerializeField] float frontflipSpeed;
     Rigidbody2D vehicleBody;
+    private bool shouldInvokeNextGrounded = true;
+    private bool shouldInvokeNextLeftGround;
     bool touchedDown;
     public bool TouchedDown {get{return touchedDown;}}
+
+    public event Action OnGrounded;
+    public event Action OnLeftGround;
 
     private bool spaceHeld;
     void Awake()
@@ -56,5 +63,23 @@ public class TrackMagnetism : MonoBehaviour
     void Update()
     {
         spaceHeld = Input.GetKey(KeyCode.Space);
+    }
+
+    void LateUpdate()
+    {
+        if (shouldInvokeNextGrounded && fWheelGrounded.Grounded && bWheelGrounded.Grounded)
+        {
+            shouldInvokeNextGrounded = false;
+            shouldInvokeNextLeftGround = true;
+            Debug.Log("Grounded");
+            OnGrounded.Invoke();
+        }
+        if (shouldInvokeNextLeftGround && !shouldInvokeNextGrounded && !fWheelGrounded.Grounded && !bWheelGrounded.Grounded)
+        {
+            shouldInvokeNextLeftGround = false;
+            OnLeftGround.Invoke();
+            shouldInvokeNextGrounded = true;
+            Debug.Log("lift off");
+        }
     }
 }

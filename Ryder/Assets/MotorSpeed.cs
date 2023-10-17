@@ -16,12 +16,12 @@ public class MotorSpeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && bWheelGrounded.Grounded)
+        if (Input.GetKey(KeyCode.Space) && bWheelGrounded.Grounded && !backWheel.useMotor)
         {
             backWheel.useMotor = true;
             
         }
-        else
+        else if (backWheel.useMotor)
         {
             
             backWheel.useMotor = false;

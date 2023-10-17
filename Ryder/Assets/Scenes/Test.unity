@@ -240,7 +240,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 77901113}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -573,7 +573,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 84898257}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -774,7 +774,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 113996695}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1166,6 +1166,7 @@ GameObject:
   - component: {fileID: 696486352}
   - component: {fileID: 696486353}
   - component: {fileID: 696486356}
+  - component: {fileID: 696486357}
   m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
@@ -1190,7 +1191,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 0
@@ -1307,6 +1308,18 @@ MonoBehaviour:
   backflipSpeed: 7
   maxBackflipSpeed: 425
   frontflipSpeed: 0.5
+--- !u!114 &696486357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696486351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7892ba5ae68bda4459a4f6b393ce1fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &701613285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,7 +1348,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 701613285}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1787,7 +1800,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 813128673}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2052,7 +2065,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 960430520}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2254,7 +2267,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1046474948}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2845,7 +2858,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1510011829}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3078,9 +3091,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.375, y: -0.100000024}
   m_Suspension:
-    m_DampingRatio: 1
+    m_DampingRatio: 0
     m_Frequency: 0
-    m_Angle: 0
+    m_Angle: 90
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 6000
@@ -3094,7 +3107,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1615849669}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 41b1c98bb0a479b4296864cf10f7e8ff, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3118,7 +3131,7 @@ Rigidbody2D:
   m_AngularDrag: 0.2
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 0
@@ -3589,9 +3602,9 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: -0.3770001, y: -0.100000024}
   m_Suspension:
-    m_DampingRatio: 1
+    m_DampingRatio: 0
     m_Frequency: 0
-    m_Angle: 0
+    m_Angle: 90
   m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: 6000
@@ -3605,7 +3618,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1683642909}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 41b1c98bb0a479b4296864cf10f7e8ff, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3628,8 +3641,8 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.2
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 41b1c98bb0a479b4296864cf10f7e8ff, type: 2}
-  m_Interpolate: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
   m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 0
@@ -3797,7 +3810,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1784680963}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4131,7 +4144,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 2012692009}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4418,7 +4431,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 2145193243}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5d85c91948418f74fbf3bf2dddf9c255, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
