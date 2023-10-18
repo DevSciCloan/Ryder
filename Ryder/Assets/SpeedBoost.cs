@@ -35,7 +35,7 @@ public class SpeedBoost : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Body")
+        if (other.gameObject.name == "CarBody")
         {
             //.AddForce(boostSpeed * other.transform.right,ForceMode2D.Impulse);
             JointMotor2D motor = backWheel.motor;

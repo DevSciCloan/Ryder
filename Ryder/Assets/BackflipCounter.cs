@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class BackflipCounter : MonoBehaviour
     private float prevRotation;
     private Rigidbody2D rb;
     private TrackMagnetism trackMagnetism;
+    public event Action<int> flipCountUpdate;
     // private float initialRotation;
 
     void Awake()
@@ -40,15 +42,15 @@ public class BackflipCounter : MonoBehaviour
                 currentRotation += rb.rotation - prevRotation;
                 prevRotation = rb.rotation;
             }
-            if (rb.rotation < prevRotation)
-            {
-                currentRotation = 0;
-            }
+            // if (rb.rotation < prevRotation)
+            // {
+            //     currentRotation = 0;
+            // }
             if (currentRotation >= 270)
             {
                 currentRotation = 0;
                 flipCount++;
-                // TODO add UI flip count display
+                flipCountUpdate.Invoke(flipCount);
                 // Debug.Log(flipCount);  
                 
             }

@@ -7,7 +7,9 @@ using UnityEngine;
 public class TrackMagnetism : MonoBehaviour
 {
     [SerializeField] WheelGrounded fWheelGrounded;
+    private Rigidbody2D frontWheel;
     [SerializeField] WheelGrounded bWheelGrounded;
+    private Rigidbody2D backWheel;
     [SerializeField] float magnetStrength;
     [SerializeField] float backflipSpeed;
     [SerializeField] float maxBackflipSpeed;
@@ -25,15 +27,16 @@ public class TrackMagnetism : MonoBehaviour
     void Awake()
     {
         vehicleBody = GetComponent<Rigidbody2D>();
+        frontWheel = fWheelGrounded.gameObject.GetComponent<Rigidbody2D>();
+        backWheel = bWheelGrounded.gameObject.GetComponent<Rigidbody2D>();
     }
     void FixedUpdate()
     {
         if (fWheelGrounded.Grounded && bWheelGrounded.Grounded)
         {
             if (!touchedDown) touchedDown = true;
-            Vector3 betweenWheelsVector = fWheelGrounded.gameObject.transform.position - bWheelGrounded.gameObject.transform.position;
+            // Vector3 betweenWheelsVector = fWheelGrounded.gameObject.transform.position - bWheelGrounded.gameObject.transform.position;
             vehicleBody.AddForce(-transform.up * magnetStrength, ForceMode2D.Force);
-            
         }
         else if ((!fWheelGrounded.Grounded && !bWheelGrounded.Grounded) && !spaceHeld)
         {
@@ -71,7 +74,6 @@ public class TrackMagnetism : MonoBehaviour
         {
             shouldInvokeNextGrounded = false;
             shouldInvokeNextLeftGround = true;
-            Debug.Log("Grounded");
             OnGrounded.Invoke();
         }
         if (shouldInvokeNextLeftGround && !shouldInvokeNextGrounded && !fWheelGrounded.Grounded && !bWheelGrounded.Grounded)
@@ -79,7 +81,6 @@ public class TrackMagnetism : MonoBehaviour
             shouldInvokeNextLeftGround = false;
             OnLeftGround.Invoke();
             shouldInvokeNextGrounded = true;
-            Debug.Log("lift off");
         }
     }
 }
