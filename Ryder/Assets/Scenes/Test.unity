@@ -1262,7 +1262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322711992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49, y: -19.41, z: -0.064113736}
+  m_LocalPosition: {x: 49, y: -19.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2974,7 +2974,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158322500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.93, y: -19.59, z: -0.064113736}
+  m_LocalPosition: {x: 60.93, y: -19.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3517,7 +3517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fWheelGrounded: {fileID: 1627519489}
   bWheelGrounded: {fileID: 52589617}
-  magnetStrength: 10
+  magnetStrength: 30
   backflipSpeed: 7
   maxBackflipSpeed: 425
   frontflipSpeed: 0.5
@@ -3555,7 +3555,7 @@ WheelJoint2D:
     m_Angle: 0
   m_UseMotor: 0
   m_Motor:
-    m_MotorSpeed: -6000
+    m_MotorSpeed: -5000
     m_MaximumMotorForce: 12
 --- !u!235 &1528249625
 WheelJoint2D:
@@ -4819,7 +4819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818907160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.12, y: -7.01, z: -0.064113736}
+  m_LocalPosition: {x: 15.12, y: -7.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
