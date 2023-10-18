@@ -46,7 +46,7 @@ public class BackflipCounter : MonoBehaviour
             // {
             //     currentRotation = 0;
             // }
-            if (currentRotation >= 270)
+            if (currentRotation >= 300)
             {
                 currentRotation = 0;
                 flipCount++;
@@ -65,8 +65,10 @@ public class BackflipCounter : MonoBehaviour
     void Landed()
     {
         inAir = false;
-        flipCount = 0;
         currentRotation = 0;
+        // TODO Update player score total
+        // PlayerScoreTotal += flipCount;
+        flipCount = 0;
     }
 
     void LiftedOff()
