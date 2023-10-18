@@ -6,7 +6,7 @@ public class MotorSpeed : MonoBehaviour
 {
     [SerializeField] WheelJoint2D backWheel;
     JointMotor2D motor;
-    [SerializeField] WheelGrounded bWheelGrounded;
+    // [SerializeField] WheelGrounded bWheelGrounded;
     private bool spacebarPressed;
     public bool OnSpacebarPressedValueChange
     {
@@ -14,7 +14,7 @@ public class MotorSpeed : MonoBehaviour
         set{
             spacebarPressed = value;
             
-            UseMotor(value);
+            UseMotor(value); // Call this function when OnSpacebarPressedValueChange value changes
         }
     }
     
@@ -26,6 +26,12 @@ public class MotorSpeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DetectSpacebarHeld();
+    }
+
+    // Toggles spacebarPressed bool when Spacebar is pressed or released
+    private void DetectSpacebarHeld()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnSpacebarPressedValueChange = true;
@@ -36,7 +42,7 @@ public class MotorSpeed : MonoBehaviour
             OnSpacebarPressedValueChange = false;
         }
     }
-
+    // Sets useMotor to bool value
     private void UseMotor(bool value)
     {
         backWheel.useMotor = value;

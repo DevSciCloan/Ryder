@@ -32,12 +32,14 @@ public class TrackMagnetism : MonoBehaviour
     }
     void FixedUpdate()
     {
+        // Pushes player into the track to allow vertical traversing of obstacles
         if (fWheelGrounded.Grounded && bWheelGrounded.Grounded)
         {
             if (!touchedDown) touchedDown = true;
             // Vector3 betweenWheelsVector = fWheelGrounded.gameObject.transform.position - bWheelGrounded.gameObject.transform.position;
             vehicleBody.AddForce(-transform.up * magnetStrength, ForceMode2D.Force);
         }
+        // Slight clockwise rotation applied here while not holding spacebar
         else if ((!fWheelGrounded.Grounded && !bWheelGrounded.Grounded) && !spaceHeld)
         {
             if (vehicleBody.angularVelocity > 0)
@@ -46,12 +48,16 @@ public class TrackMagnetism : MonoBehaviour
             }
             vehicleBody.AddTorque(-frontflipSpeed);
         }
+        // Prevents backflip on scene start until vehicle has become grounded. 
+        // After initial grounding anytime the player is not grounded and spacebar is held apply counter clockwise rotation
         else if ((!fWheelGrounded.Grounded && !bWheelGrounded.Grounded) && spaceHeld && touchedDown)
         {
+            // Makes the transition from clockwise to counter clockwise instant
             if (vehicleBody.angularVelocity < 0)
             {
                 vehicleBody.angularVelocity = 0;
             }
+            // Limits counter clockwise rotation speed
             if (vehicleBody.angularVelocity > maxBackflipSpeed)
             {
                 vehicleBody.angularVelocity = maxBackflipSpeed;
@@ -65,10 +71,16 @@ public class TrackMagnetism : MonoBehaviour
 
     void Update()
     {
-        spaceHeld = Input.GetKey(KeyCode.Space);
+        spaceHeld = Input.GetKey(KeyCode.Space); // Can be replaced by accessing MotorSpeed.OnSpacebarPressedValueChange
     }
 
     void LateUpdate()
+    {
+        HandleGroundedEvents();
+    }
+
+    // Handles invoking grounded and airborne events
+    private void HandleGroundedEvents()
     {
         if (shouldInvokeNextGrounded && fWheelGrounded.Grounded && bWheelGrounded.Grounded)
         {

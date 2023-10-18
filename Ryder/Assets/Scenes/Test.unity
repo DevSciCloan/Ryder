@@ -3282,7 +3282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backWheel: {fileID: 1528249624}
-  bWheelGrounded: {fileID: 52589617}
 --- !u!114 &1528249627
 MonoBehaviour:
   m_ObjectHideFlags: 0

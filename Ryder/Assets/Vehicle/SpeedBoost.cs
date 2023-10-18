@@ -21,6 +21,12 @@ public class SpeedBoost : MonoBehaviour
 
     void FixedUpdate()
     {
+        EaseMotorSpeedBackToNormalSpeed();
+    }
+
+    // You need to take a JointMotor2D, assign motorSpeed, and then assign the JointMotor2D to the WheelJoint2D.motor in order to adjust motorSpeed at runtime
+    private void EaseMotorSpeedBackToNormalSpeed()
+    {
         if (slowDown)
         {
             JointMotor2D motor = backWheel.motor;
@@ -33,9 +39,11 @@ public class SpeedBoost : MonoBehaviour
                 backWheel.motor = motor;
                 slowDown = false;
                 backWheel.gameObject.GetComponent<VelocityLimiter>().ShouldLimitVelocity = true;
+                // Helps ensure that speed boosts effect the player speed
+                // Must set useMotor after assigning new JointMotor2D
                 if (!backWheel.gameObject.GetComponent<MotorSpeed>().OnSpacebarPressedValueChange)
                 {
-                    Debug.Log("use motor false");
+                    // Debug.Log("use motor false");
                     backWheel.useMotor = false;
                 }
             }
@@ -52,6 +60,7 @@ public class SpeedBoost : MonoBehaviour
             motor.motorSpeed += boostSpeed;
             backWheel.motor = motor;
             speedBoost = StartCoroutine(HandleBoost());
+            // Helps ensure that speed boosts effect the player speed
             if (!backWheel.gameObject.GetComponent<MotorSpeed>().OnSpacebarPressedValueChange)
             {
                 backWheel.useMotor = true;

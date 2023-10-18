@@ -26,6 +26,8 @@ public class UIFlipCounter : MonoBehaviour
     void OnDisable()
     {
         bfCounter.flipCountUpdate -= UpdateCounter;
+        trackMagnetism.OnGrounded -= Landed;
+        trackMagnetism.OnLeftGround -= LiftedOff;
     }
 
     void UpdateCounter(int flipCount)

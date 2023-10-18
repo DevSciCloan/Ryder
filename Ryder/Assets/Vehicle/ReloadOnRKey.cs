@@ -10,7 +10,7 @@ public class ReloadOnRKey : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name); // Reloads the active scene when R is pressed
         }
     }
 }

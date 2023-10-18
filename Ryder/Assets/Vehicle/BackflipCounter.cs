@@ -35,6 +35,13 @@ public class BackflipCounter : MonoBehaviour
     void LateUpdate()
     {
         
+        CountBackflips();
+        
+    }
+
+    // Counts backflips based on rigidbody2d rotation
+    private void CountBackflips()
+    {
         if (inAir)
         {
             if (rb.rotation > prevRotation)
@@ -42,6 +49,8 @@ public class BackflipCounter : MonoBehaviour
                 currentRotation += rb.rotation - prevRotation;
                 prevRotation = rb.rotation;
             }
+            // This if statement would reset the currentRotation if the player rotates clockwise. 
+            // Currently commented out because the player sometimes rotates clockwise briefly and a backflip doesn't get counted
             // if (rb.rotation < prevRotation)
             // {
             //     currentRotation = 0;
@@ -59,9 +68,9 @@ public class BackflipCounter : MonoBehaviour
         {
             currentRotation = 0;
         }
-        
     }
 
+    // Called when player lands by invoking an event in TrackMagnetism script
     void Landed()
     {
         inAir = false;
@@ -71,6 +80,7 @@ public class BackflipCounter : MonoBehaviour
         flipCount = 0;
     }
 
+    // Called when player becomes airborne by invoking an event in TrackMagnetism script
     void LiftedOff()
     {
         currentRotation = 0;
