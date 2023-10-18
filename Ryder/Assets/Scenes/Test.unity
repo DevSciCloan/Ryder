@@ -4718,7 +4718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6061dc837c6b354caa7f82fed7d0c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostSpeed: -2500
+  boostSpeed: 1000
   boostDuration: 1.5
   backWheel: {fileID: 1683642911}
   slowDownSpeed: 2500

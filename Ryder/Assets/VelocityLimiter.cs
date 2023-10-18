@@ -6,6 +6,8 @@ public class VelocityLimiter : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField] float maxSpeed;
+    private bool shouldLimitVelocity = true;
+    public bool ShouldLimitVelocity {set{shouldLimitVelocity = value;}}
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -13,7 +15,7 @@ public class VelocityLimiter : MonoBehaviour
 
     void Update()
     {
-        if (rb.velocity.magnitude > maxSpeed)
+        if (shouldLimitVelocity && rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }

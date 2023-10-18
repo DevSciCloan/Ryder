@@ -14,6 +14,8 @@ public class SpeedBoost : MonoBehaviour
    
     void Awake()
     {
+        GameObject vehicle = GameObject.Find("CarBody");
+        backWheel = vehicle.GetComponents<WheelJoint2D>()[1];
         startSpeed = backWheel.motor.motorSpeed;
     }
 
@@ -26,9 +28,16 @@ public class SpeedBoost : MonoBehaviour
             backWheel.motor = motor;
             if (motor.motorSpeed <= startSpeed)
             {
+                
                 motor.motorSpeed = startSpeed;
                 backWheel.motor = motor;
                 slowDown = false;
+                backWheel.gameObject.GetComponent<VelocityLimiter>().ShouldLimitVelocity = true;
+                if (!backWheel.gameObject.GetComponent<MotorSpeed>().OnSpacebarPressedValueChange)
+                {
+                    Debug.Log("use motor false");
+                    backWheel.useMotor = false;
+                }
             }
         }
     }
@@ -37,11 +46,16 @@ public class SpeedBoost : MonoBehaviour
     {
         if (other.gameObject.name == "CarBody")
         {
+            backWheel.gameObject.GetComponent<VelocityLimiter>().ShouldLimitVelocity = false;
             //.AddForce(boostSpeed * other.transform.right,ForceMode2D.Impulse);
             JointMotor2D motor = backWheel.motor;
             motor.motorSpeed += boostSpeed;
             backWheel.motor = motor;
             speedBoost = StartCoroutine(HandleBoost());
+            if (!backWheel.gameObject.GetComponent<MotorSpeed>().OnSpacebarPressedValueChange)
+            {
+                backWheel.useMotor = true;
+            }
         }
     }
 

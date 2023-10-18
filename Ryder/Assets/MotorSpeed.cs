@@ -10,6 +10,7 @@ public class MotorSpeed : MonoBehaviour
     private bool spacebarPressed;
     public bool OnSpacebarPressedValueChange
     {
+        get{return spacebarPressed;}
         set{
             spacebarPressed = value;
             
