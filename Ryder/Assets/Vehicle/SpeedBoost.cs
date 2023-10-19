@@ -8,7 +8,7 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] float boostDuration;
     [SerializeField] WheelJoint2D backWheel;
     private bool slowDown;
-    Coroutine speedBoost;
+    Coroutine speedBoost; // Can be used to StopCoroutine(speedBoost) if needed
     private float startSpeed;
     [SerializeField] float slowDownSpeed;
    
