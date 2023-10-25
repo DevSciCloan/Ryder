@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UIFlipCounter : MonoBehaviour
 {
-    [SerializeField] BackflipCounter bfCounter;
-    [SerializeField] TrackMagnetism trackMagnetism;
+    private BackflipCounter bfCounter;
+    private TrackMagnetism trackMagnetism;
     private TMP_Text counterText;
     Animator animator;
 
@@ -14,6 +14,9 @@ public class UIFlipCounter : MonoBehaviour
     {
         counterText = GetComponent<TMP_Text>();
         animator = GetComponent<Animator>();
+        GameObject carBody = GameObject.Find("CarBody");
+        bfCounter = carBody.GetComponent<BackflipCounter>();
+        trackMagnetism = carBody.GetComponent<TrackMagnetism>();
     }
 
     void OnEnable()
