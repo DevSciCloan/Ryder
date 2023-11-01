@@ -12,7 +12,7 @@ public class BackflipCounter : MonoBehaviour
     private float prevRotation;
     private Rigidbody2D rb;
     private TrackMagnetism trackMagnetism;
-    public UnityEvent<int> flipCountUpdate;
+    [HideInInspector] public UnityEvent<int> flipCountUpdate;
     [SerializeField] PlayerPointsScriptableObject playerPoints;
     // private float initialRotation;
 
