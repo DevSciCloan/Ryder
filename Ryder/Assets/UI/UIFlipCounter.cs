@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UIFlipCounter : MonoBehaviour
 {
@@ -9,26 +10,27 @@ public class UIFlipCounter : MonoBehaviour
     private TrackMagnetism trackMagnetism;
     private TMP_Text counterText;
     Animator animator;
+    
 
     void Awake()
     {
         counterText = GetComponent<TMP_Text>();
         animator = GetComponent<Animator>();
-        GameObject carBody = GameObject.Find("CarBody");
+        GameObject carBody = GameObject.Find("Hoverboard");
         bfCounter = carBody.GetComponent<BackflipCounter>();
         trackMagnetism = carBody.GetComponent<TrackMagnetism>();
     }
 
     void OnEnable()
     {
-        bfCounter.flipCountUpdate += UpdateCounter;
+        bfCounter.flipCountUpdate.AddListener( UpdateCounter);
         trackMagnetism.OnGrounded += Landed;
         trackMagnetism.OnLeftGround += LiftedOff;
     }
 
     void OnDisable()
     {
-        bfCounter.flipCountUpdate -= UpdateCounter;
+        bfCounter.flipCountUpdate.RemoveListener(UpdateCounter);
         trackMagnetism.OnGrounded -= Landed;
         trackMagnetism.OnLeftGround -= LiftedOff;
     }

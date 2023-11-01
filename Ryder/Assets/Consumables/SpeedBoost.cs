@@ -14,7 +14,7 @@ public class SpeedBoost : MonoBehaviour
    
     void Awake()
     {
-        GameObject vehicle = GameObject.Find("CarBody");
+        GameObject vehicle = GameObject.Find("Hoverboard");
         backWheel = vehicle.GetComponents<WheelJoint2D>()[1];
         startSpeed = backWheel.motor.motorSpeed;
     }
@@ -52,7 +52,7 @@ public class SpeedBoost : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "CarBody")
+        if (other.gameObject.name == "Hoverboard")
         {
             backWheel.gameObject.GetComponent<VelocityLimiter>().ShouldLimitVelocity = false;
             //.AddForce(boostSpeed * other.transform.right,ForceMode2D.Impulse);

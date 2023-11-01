@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BackflipCounter : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class BackflipCounter : MonoBehaviour
     private float prevRotation;
     private Rigidbody2D rb;
     private TrackMagnetism trackMagnetism;
-    public event Action<int> flipCountUpdate;
+    public UnityEvent<int> flipCountUpdate;
+    [SerializeField] PlayerPointsScriptableObject playerPoints;
     // private float initialRotation;
 
     void Awake()
@@ -76,6 +78,7 @@ public class BackflipCounter : MonoBehaviour
         inAir = false;
         currentRotation = 0;
         // TODO Update player score total
+        playerPoints.PlayerPoints += flipCount;
         // PlayerScoreTotal += flipCount;
         flipCount = 0;
     }
