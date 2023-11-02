@@ -52,7 +52,7 @@ public class SpeedBoost : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Hoverboard")
+        if (other.gameObject.name == "HoverboardBoard")
         {
             backWheel.gameObject.GetComponent<VelocityLimiter>().ShouldLimitVelocity = false;
             //.AddForce(boostSpeed * other.transform.right,ForceMode2D.Impulse);

@@ -9,7 +9,7 @@ public class OnKillZoneEnter : MonoBehaviour
     {
         if (other.gameObject.name == "Hoverboard")
         {
-            failOnCollision.onFail.Invoke();
+            failOnCollision.onFail?.Invoke();
         }
     }
 }

@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         if (playerPoints.PlayerPoints == playerPoints.PointsToWin)
         {
             // Display win screen
-            onWinConditionTrue.Invoke();
+            onWinConditionTrue?.Invoke();
         }
     }
 }

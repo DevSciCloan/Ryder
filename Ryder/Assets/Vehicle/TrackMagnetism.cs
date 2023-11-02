@@ -1,8 +1,7 @@
+
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TrackMagnetism : MonoBehaviour
 {
@@ -20,8 +19,8 @@ public class TrackMagnetism : MonoBehaviour
     bool touchedDown;
     public bool TouchedDown {get{return touchedDown;}}
 
-    public event Action OnGrounded;
-    public event Action OnLeftGround;
+    public UnityEvent OnGrounded;
+    public UnityEvent OnLeftGround;
 
     private bool spaceHeld;
     void Awake()
@@ -86,13 +85,13 @@ public class TrackMagnetism : MonoBehaviour
         {
             shouldInvokeNextGrounded = false;
             shouldInvokeNextLeftGround = true;
-            OnGrounded.Invoke();
+            OnGrounded?.Invoke();
         }
         if (shouldInvokeNextLeftGround && !shouldInvokeNextGrounded && !fWheelGrounded.Grounded && !bWheelGrounded.Grounded)
         {
             shouldInvokeNextLeftGround = false;
-            OnLeftGround.Invoke();
             shouldInvokeNextGrounded = true;
+            OnLeftGround?.Invoke();
         }
     }
 }

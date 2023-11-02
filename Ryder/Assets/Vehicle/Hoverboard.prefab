@@ -55,7 +55,7 @@ SpriteShapeRenderer:
   m_RenderingLayerMask: 4
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a526b6963495f1847b838bd79bd7defe, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: 1af47c1f0a959db4a9adda6910ffb7c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -91,8 +91,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 0.000510931, y: 0.7498117, z: 0}
-    m_Extent: {x: 2.582889, y: 0.50015086, z: 0}
+    m_Center: {x: -0.016011357, y: 0.7416709, z: 0}
+    m_Extent: {x: 1.7995477, y: 0.49201006, z: 0}
 --- !u!60 &4131521496876631776
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -118,27 +118,31 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.19123, y: 1.2440741}
-      - {x: 0.87439597, y: 1.2492449}
-      - {x: -0.044541683, y: 1.2444332}
-      - {x: -2.0189707, y: 1.2503016}
-      - {x: -2.2799728, y: 1.2293705}
-      - {x: -2.3904295, y: 1.1973416}
-      - {x: -2.5315657, y: 1.0999897}
-      - {x: -2.584643, y: 0.8476109}
-      - {x: -2.4747615, y: 0.68560463}
-      - {x: -2.243336, y: 0.55287373}
-      - {x: -1.8948778, y: 0.42009544}
-      - {x: -1.4336386, y: 0.30067974}
+    - - {x: 1.1804403, y: 1.2007053}
+      - {x: 0.88004225, y: 1.2120721}
+      - {x: -0.044541683, y: 1.222749}
+      - {x: -1.2469572, y: 1.2177231}
+      - {x: -1.5122088, y: 1.1487254}
+      - {x: -1.6459359, y: 1.0844623}
+      - {x: -1.7569827, y: 0.969296}
+      - {x: -1.800115, y: 0.87653846}
+      - {x: -1.8136858, y: 0.71206725}
+      - {x: -1.7754066, y: 0.6063737}
+      - {x: -1.6674063, y: 0.4707501}
+      - {x: -1.5462519, y: 0.38768607}
+      - {x: -1.4468935, y: 0.33955377}
+      - {x: -1.3357592, y: 0.30067974}
       - {x: -1.0756905, y: 0.2518686}
-      - {x: -0.038532853, y: 0.24251975}
+      - {x: -0.041586697, y: 0.25760174}
       - {x: 1.0680997, y: 0.258182}
-      - {x: 1.436684, y: 0.30480045}
-      - {x: 1.9892911, y: 0.44558927}
-      - {x: 2.4751308, y: 0.67554176}
-      - {x: 2.5872118, y: 0.85682607}
-      - {x: 2.5292914, y: 1.1083698}
-      - {x: 2.3520935, y: 1.2131517}
+      - {x: 1.2762715, y: 0.29276547}
+      - {x: 1.4329188, y: 0.33577806}
+      - {x: 1.6432322, y: 0.4633619}
+      - {x: 1.740829, y: 0.5849892}
+      - {x: 1.7824465, y: 0.7498888}
+      - {x: 1.75712, y: 0.89709723}
+      - {x: 1.6634364, y: 1.0278275}
+      - {x: 1.4109471, y: 1.1635876}
 --- !u!114 &923909381770215355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,9 +168,9 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -2, y: 1, z: 0}
-      leftTangent: {x: -1.0023332, y: 0.0010559559, z: 0}
-      rightTangent: {x: 1.0023332, y: -0.0010559559, z: -0}
+    - position: {x: -0.97064877, y: 0.98371035, z: 0}
+      leftTangent: {x: -1.0023335, y: 0.0010565519, z: 0}
+      rightTangent: {x: 1.0023335, y: -0.0010558963, z: 0}
       mode: 1
       height: 1
       bevelCutoff: 0
@@ -174,9 +178,9 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 2, y: 1, z: 0}
-      leftTangent: {x: -1.0005913, y: -0.0016920567, z: -0}
-      rightTangent: {x: 1.0005913, y: 0.0016920567, z: 0}
+    - position: {x: 0.9013631, y: 0.9674211, z: 0}
+      leftTangent: {x: -1.000592, y: -0.001691699, z: 0}
+      rightTangent: {x: 1.0005906, y: 0.0016922951, z: 0}
       mode: 1
       height: 1
       bevelCutoff: 0
@@ -323,6 +327,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6960415129341546144}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+        m_MethodName: set_simulated
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6960415129910100851}
+        m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+        m_MethodName: set_simulated
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ScreenShakeEffect, Assembly-CSharp
         m_MethodName: StartShake
@@ -339,6 +367,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Stop
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8802929188487369467}
+        m_TargetAssemblyTypeName: FailOnCollision, Assembly-CSharp
+        m_MethodName: CoroutineFailScreenActivate
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5522,6 +5562,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6877239400121374141, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.754
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877239400121374141, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
       objectReference: {fileID: 0}
@@ -5535,11 +5579,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6877239400491176276, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7025728
+      value: -5.04
       objectReference: {fileID: 0}
     - target: {fileID: 6877239400491176276, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.815
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 6877239400491176276, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5579,23 +5623,27 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 39d71b3d2d6229d45ba61a20805d5934, type: 2}
     - target: {fileID: 6877239400491176280, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_Anchor.x
-      value: 1.0219997
+      value: 0.75400054
       objectReference: {fileID: 0}
     - target: {fileID: 6877239400491176280, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_Anchor.y
-      value: 0.120399825
+      value: 0.12039993
       objectReference: {fileID: 0}
     - target: {fileID: 6877239400491176281, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_Anchor.x
-      value: -0.89499974
+      value: -0.7659994
       objectReference: {fileID: 0}
     - target: {fileID: 6877239400491176281, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_Anchor.y
-      value: 0.11039986
+      value: 0.11039996
       objectReference: {fileID: 0}
     - target: {fileID: 6877239400491176285, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877239401700497514, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.766
       objectReference: {fileID: 0}
     - target: {fileID: 6877239401700497514, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5623,5 +5671,15 @@ Rigidbody2D:
 --- !u!4 &6960415128973904459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6877239400491176276, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
+  m_PrefabInstance: {fileID: 4605071780571667231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &6960415129341546144 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6877239400121374143, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
+  m_PrefabInstance: {fileID: 4605071780571667231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &6960415129910100851 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6877239401700497516, guid: 682ef5e6dbcb6e24482122d50998d387, type: 3}
   m_PrefabInstance: {fileID: 4605071780571667231}
   m_PrefabAsset: {fileID: 0}

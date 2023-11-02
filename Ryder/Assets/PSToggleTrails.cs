@@ -16,14 +16,14 @@ public class PSToggleTrails : MonoBehaviour
 
     void OnEnable()
     {
-        trackMagnetism.OnGrounded += ParticleTrailsOn;
-        trackMagnetism.OnLeftGround += ParticleTrailsOff;
+        trackMagnetism.OnGrounded.AddListener(ParticleTrailsOn);
+        trackMagnetism.OnLeftGround.AddListener(ParticleTrailsOff);
     }
 
     void OnDisable()
     {
-        trackMagnetism.OnGrounded -= ParticleTrailsOn;
-        trackMagnetism.OnLeftGround -= ParticleTrailsOff;
+        trackMagnetism.OnGrounded.RemoveListener(ParticleTrailsOn);
+        trackMagnetism.OnLeftGround.RemoveListener(ParticleTrailsOff);
     }
 
     void ParticleTrailsOff()

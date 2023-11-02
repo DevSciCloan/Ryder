@@ -9,7 +9,7 @@ public class PointsConsumable : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Hoverboard")
+        if (other.gameObject.name == "HoverboardBoard")
         {
             playerPoints.PlayerPoints += 1;
             Instantiate(_particleSystem, transform.position, Quaternion.identity);

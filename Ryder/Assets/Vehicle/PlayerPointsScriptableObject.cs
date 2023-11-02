@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,6 @@ public class PlayerPointsScriptableObject : ScriptableObject
     [SerializeField] int pointsToWin;
     public int PointsToWin { get { return pointsToWin; } }
     public UnityEvent<string> onPlayerPointsChanged;
-    public int PlayerPoints {get { return playerPoints;} set { playerPoints = value; onPlayerPointsChanged.Invoke(playerPoints.ToString() + "/" + pointsToWin.ToString()); } }
+    public int PlayerPoints {get { return playerPoints;} set { playerPoints = value; if (value > 0 )onPlayerPointsChanged?.Invoke(playerPoints.ToString() + "/" + pointsToWin.ToString()); } }
 
 }

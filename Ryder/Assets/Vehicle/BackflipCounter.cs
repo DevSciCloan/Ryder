@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BackflipCounter : MonoBehaviour
 {
-     private bool inAir;
+    private bool inAir;
     private int flipCount;
     private float currentRotation;
     private float prevRotation;
@@ -20,18 +18,19 @@ public class BackflipCounter : MonoBehaviour
     {
         trackMagnetism = GetComponent<TrackMagnetism>();
         rb = GetComponent<Rigidbody2D>();
+        // Debug.Log("Finished BackflipCounter awake");
     }
 
     void OnEnable()
     {
-        trackMagnetism.OnGrounded += Landed;
-        trackMagnetism.OnLeftGround += LiftedOff;
+        trackMagnetism.OnGrounded.AddListener(Landed);
+        trackMagnetism.OnLeftGround.AddListener(LiftedOff);
     }
 
     void OnDisable()
     {
-        trackMagnetism.OnGrounded -= Landed;
-        trackMagnetism.OnLeftGround -= LiftedOff;
+        trackMagnetism.OnGrounded.RemoveListener(Landed);
+        trackMagnetism.OnLeftGround.RemoveListener(LiftedOff);
     }
 
     void LateUpdate()
@@ -61,7 +60,7 @@ public class BackflipCounter : MonoBehaviour
             {
                 currentRotation = 0;
                 flipCount++;
-                flipCountUpdate.Invoke(flipCount);
+                flipCountUpdate?.Invoke(flipCount);
                 // Debug.Log(flipCount);  
                 
             }
@@ -78,6 +77,7 @@ public class BackflipCounter : MonoBehaviour
         inAir = false;
         currentRotation = 0;
         // TODO Update player score total
+        if (flipCount > 0)
         playerPoints.PlayerPoints += flipCount;
         // PlayerScoreTotal += flipCount;
         flipCount = 0;

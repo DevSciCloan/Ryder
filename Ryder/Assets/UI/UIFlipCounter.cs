@@ -1,38 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class UIFlipCounter : MonoBehaviour
 {
-    private BackflipCounter bfCounter;
+    [SerializeField] BackflipCounter bfCounter;
     private TrackMagnetism trackMagnetism;
     private TMP_Text counterText;
-    Animator animator;
+    [SerializeField] Animator _animator;
     
 
     void Awake()
     {
         counterText = GetComponent<TMP_Text>();
-        animator = GetComponent<Animator>();
+        // _hasAnimator = TryGetComponent<Animator>(out _animator);
+        // _animator = GetComponent<Animator>();
         GameObject carBody = GameObject.Find("Hoverboard");
-        bfCounter = carBody.GetComponent<BackflipCounter>();
+        // bfCounter = carBody.GetComponent<BackflipCounter>();
         trackMagnetism = carBody.GetComponent<TrackMagnetism>();
+        // Debug.Log("Finished UIFlipCounter awake");
     }
 
     void OnEnable()
     {
-        bfCounter.flipCountUpdate.AddListener( UpdateCounter);
-        trackMagnetism.OnGrounded += Landed;
-        trackMagnetism.OnLeftGround += LiftedOff;
+        bfCounter.flipCountUpdate.AddListener(UpdateCounter);
+        trackMagnetism.OnGrounded.AddListener(Landed);
+        trackMagnetism.OnLeftGround.AddListener(LiftedOff);
     }
 
     void OnDisable()
     {
         bfCounter.flipCountUpdate.RemoveListener(UpdateCounter);
-        trackMagnetism.OnGrounded -= Landed;
-        trackMagnetism.OnLeftGround -= LiftedOff;
+        trackMagnetism.OnGrounded.RemoveListener(Landed);
+        trackMagnetism.OnLeftGround.RemoveListener(LiftedOff);
     }
 
     void UpdateCounter(int flipCount)
@@ -41,7 +41,7 @@ public class UIFlipCounter : MonoBehaviour
 
         if (flipCount > 0)
         {
-            animator.SetTrigger("Go");
+            _animator.SetTrigger("Go");
         }
         
     }
@@ -49,13 +49,13 @@ public class UIFlipCounter : MonoBehaviour
     void LiftedOff()
     {
         counterText.text = "+0";
-        animator.SetBool("InAir", true);
-        animator.SetBool("Landed", false);
+        _animator.SetBool("InAir", true);
+        _animator.SetBool("Landed", false);
     }
 
     void Landed()
     {
-        animator.SetBool("InAir", false);
-        animator.SetBool("Landed", true);
+        _animator.SetBool("InAir", false);
+        _animator.SetBool("Landed", true);
     }
 }

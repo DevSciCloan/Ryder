@@ -18,7 +18,7 @@ public class FailOnCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "Track")
         {
-            onFail.Invoke();
+            onFail?.Invoke();
             
         }
     }

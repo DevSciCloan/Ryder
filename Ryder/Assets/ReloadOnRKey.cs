@@ -16,6 +16,16 @@ public class ReloadOnRKey : MonoBehaviour
 
     public void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Reloads the active scene
+        StartCoroutine(ReloadSceneAsync());
+    }
+
+
+    IEnumerator ReloadSceneAsync()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        while(!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
